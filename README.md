@@ -1,7 +1,7 @@
 emjCCMainThreadCaller
 =====================
 
-A cross platform c++11 API for the cocos2d-x game engine. It allows you to call back on main thread when using c++11 portable thread library.
+A cross platform c++11 API for the cocos2d-x game engine. It allows you to call back on main thread when using c++11 standard concurrency library.
 
 you can use it with std::async, std::thread or any other native thread implementation.
 
