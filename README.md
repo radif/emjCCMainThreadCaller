@@ -9,10 +9,10 @@ Useful for working with threads callbacks
 
 
      //you need to save the future outside the stack context to let the tread run trully in background; if you don't do this, the operation will be synchronous;
-     struct FutureHolder {std::future<void> future;};
+     struct FutureHolder {std::future<void> future = nullptr;};
 
      FutureHolder * f=new FutureHolder;
-     f->addFuture(std::async(std::launch::async, [=](){
+     f->future=std::async(std::launch::async, [=]()
      std::cout << "Hello from working thread with Thread ID:"<<std::this_thread::get_id()<<std::endl;
 
      emjCCPlatformSupport::call_on_main_thread([=](){
@@ -20,4 +20,4 @@ Useful for working with threads callbacks
          delete f; //deleting the future and holder. If you fail to delete you will have a leak
      });
 
-     }));
+     });
